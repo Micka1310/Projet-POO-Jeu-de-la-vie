@@ -30,3 +30,22 @@
 *.exe
 *.out
 *.app
+
+# Customiser par Mickael
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.json
+*.vsidx
+*.suo
+*.wsuo
+*.db
+*.VC.db
+*.backup.json
+*.ipch
+*.sqlite
+*.hpp
+*.inl
+*.pdb
+*.cmake
