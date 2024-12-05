@@ -1,29 +1,16 @@
-// =================
-// | Classe "Case" |
-// =================
-//
-// case.cpp : Ce fichier permet de définir les méthodes de la classe "Case".
-
 #include "case.h"
 
+using namespace std;
 
-// constructeur
-Case::Case() : m_coord_x(0), m_coord_y(0), m_etat(false)
-{
+// Constructeur par dÃ©faut
+Case::Case() : m_coord_x(0), m_coord_y(0), m_etat(false) {}
 
-};
-
-// constructeur surcharger
-Case::Case(int x, int y, bool etat) : m_coord_x(x), m_coord_y(y), m_etat(etat)
-{
-
-};
-
-// destructeur
-Case::~Case()
-{
-
+// Constructeur paramÃ©trÃ©
+Case::Case(int x, int y, bool etat) : m_coord_x(x), m_coord_y(y), m_etat(etat) {
 }
+
+// Destructeur
+Case::~Case() {}
 
 // accesseur
 int Case::getCoord_x()
@@ -38,7 +25,7 @@ int Case::getCoord_y()
 }
 
 // accesseur
-bool Case::getEtat()
+bool Case::getEtat() const
 {
 	return m_etat;
 }
@@ -61,7 +48,7 @@ void Case::setEtat(bool etat)
 	m_etat = etat;
 }
 
-// méthode
+// mï¿½thode
 void Case::afficherCase() const
 {
 	std::cout << "Coordonnee x : " << m_coord_x << std::endl;

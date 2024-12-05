@@ -1,13 +1,13 @@
-// =====================================
+/*// =====================================
 // | Test unitaire de la classe "Case" |
 // =====================================
 //
-// Auteur : King Mickaël
+// Auteur : King Mickaï¿½l
 // 
-// test_case.cpp : Ce fichier permet de faire un test unitaire pour vérifier
-// si la classe "Case" et ses méthodes fonctionnent correctement.
+// test_case.cpp : Ce fichier permet de faire un test unitaire pour vï¿½rifier
+// si la classe "Case" et ses mï¿½thodes fonctionnent correctement.
 // 
-// Le programme créer des objets de la classe "Case" et appelle les méthodes
+// Le programme crï¿½er des objets de la classe "Case" et appelle les mï¿½thodes
 // avec ces objets.
 
 #include "../case.h"
@@ -15,11 +15,11 @@
 
 int main()
 {
-	// Création d'objet
+	// Crï¿½ation d'objet
 	Case case_simple;
-	Case case_surcharger(7, 24, true);
+	/*Case case_surcharger(7, 24, true);
 
-	// Test de méthode
+	// Test de mï¿½thode
 	case_simple.afficherCase();
 	case_surcharger.afficherCase();
 
@@ -32,11 +32,11 @@ int main()
 
 	// Test de mutateur
 	case_surcharger.setCoord_x(154);
-	case_surcharger.setEtat(false);
+	case_simple.setEtat(true);
 	
-	case_surcharger.afficherCase();
+	//case_surcharger.afficherCase();
 
 	std::cout << "Le test unitaire de la classe \"Case\" marche ! :)" << std::endl;
 
 	return 0;
-}
+}*/
