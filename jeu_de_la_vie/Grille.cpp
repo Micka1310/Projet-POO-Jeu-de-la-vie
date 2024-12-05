@@ -50,7 +50,7 @@ void Grille::afficherGrille() {
     
         
     }
-    cout << "\n    "; // Espace pour aligner avec les numéros de lignes
+    cout << "\n   "; // Espace pour aligner avec les numéros de lignes
     for (size_t col = 0; col < grille[0].size(); ++col) {
         cout << "---";   
     }

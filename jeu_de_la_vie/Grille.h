@@ -7,9 +7,10 @@
 class Grille {
 private:
     Case* OCase;
-public:
     int rows, cols; 
-    std::vector<std::vector<Case>> grille; // Tableau dynamique 2D
+    std::vector<std::vector<Case>> grille;
+public:
+     // Tableau dynamique 2D
 
     Grille(); // Constructeur par défaut
     Grille(int r, int c);
