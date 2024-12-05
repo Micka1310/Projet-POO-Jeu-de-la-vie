@@ -1,18 +1,4 @@
-// ================
-// | Classe "Case" |
-// ================
-//
-// Auteur : King Mickaël
-// 
-// case.h : Ce fichier permet de déclarer la classe "Case", ses attributs ainsi que ses méthodes.
-// 
-// Permet de créer des cases pour remplir la grille.
-
 #pragma once
-
-// début de l'include guard
-#ifndef CLASSE_CASE 
-#define CLASSE_CASE
 
 #include <iostream>
 
@@ -36,15 +22,17 @@ public:
 	// accesseur
 	int getCoord_x();
 	int getCoord_y();
-	bool getEtat();
+	bool getEtat() const;
 
 	// mutateur
 	void setCoord_x(int x);
 	void setCoord_y(int y);
 	void setEtat(bool etat);
 
-	// méthode
+	// mï¿½thode
 	void afficherCase() const;
 };
 
-#endif   // fin de l'include guard
+
+
+
