@@ -3,11 +3,7 @@
 using namespace std;
 
 // Constructeur par défaut
-Grille::Grille() : rows(0), cols(0), grille(0, vector<Case>(0)) {
-    this->OCase = new Case(rows, cols, false);
-	this->OCase = NULL;
-    
-}
+Grille::Grille() : rows(0), cols(0), grille(0, vector<Case>(0)) {}
 
 // Constructeur paramétré
 Grille::Grille(int r, int c) : rows(r), cols(c), grille(r, vector<Case>(c)) {
@@ -47,10 +43,8 @@ void Grille::afficherGrille() {
         } else {
             cout << col+1;
         }
-    
-        
     }
-    cout << "\n   "; // Espace pour aligner avec les numéros de lignes
+    cout << "\n    "; // Espace pour aligner avec les numéros de colonnes
     for (size_t col = 0; col < grille[0].size(); ++col) {
         cout << "---";   
     }
@@ -99,7 +93,7 @@ void Grille::PlacerPoint() {
 }
 
 void Grille::compter_voisin (){
-    std::vector<std::vector<bool>> Save (rows, std::vector<bool>(cols, false));
+    vector<vector<bool>> Save (rows, std::vector<bool>(cols, false));
     for (int x = 0; x <= rows-1; x++){
         for (int y = 0; y <= cols-1; y++){
             int nb_voisin = 0;
