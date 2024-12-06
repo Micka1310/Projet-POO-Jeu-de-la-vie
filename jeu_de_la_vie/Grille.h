@@ -14,6 +14,7 @@ public:
 
     void getTaille();        // Afficher ou modifier la taille
     void compter_voisin ();   // Analyse les voisines de chaque case
+
     void afficherGrille();   // Afficher la grille entière
     void PlacerPoint();      // Placer un point dans la grille
 };

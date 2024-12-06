@@ -5,6 +5,7 @@ using namespace std;
 // Constructeur par défaut
 Grille::Grille() : rows(0), cols(0), grille(0, vector<Case>(0)) {}
 
+
 // Constructeur paramétré
 Grille::Grille(int r, int c) : rows(r), cols(c), grille(r, vector<Case>(c)) {
     cout << "Taille de la grille : " << rows << " x " << cols << endl;
@@ -47,6 +48,7 @@ void Grille::afficherGrille() {
     cout << "\n    "; // Espace pour aligner avec les numéros de colonnes
     for (size_t col = 0; col < grille[0].size(); ++col) {
         cout << "---";   
+
     }
     cout << "\n";
 
