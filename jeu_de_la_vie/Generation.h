@@ -7,6 +7,11 @@ private:
 public:
     // Constructeur
     Generation(int maxGenerations) : generation(0), max_gen(maxGenerations) {}
+
+    // Destructeur 
+    ~Generation() {
+        std::cout << "Destructeur : L'objet Generation est detruit" << std::endl;
+    }
     // Méthode incrémenter génération
     void incrementer() {
         if (generation < max_gen) {
