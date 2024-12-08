@@ -1,21 +1,16 @@
 #pragma once
 #include <iostream>
-
 class Generation {
 private:
     int generation;  // Num de la generation
-<<<<<<< HEAD
     int max_gen;     // Nombre max de générations
-=======
-    int max_gen;     // Nombre max de gï¿½nï¿½rations
->>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
 public:
-    // Constructeur
+    // Constructeur 
     Generation(int maxGenerations) : generation(0), max_gen(maxGenerations) {}
     // Méthode incrémenter génération
     void incrementer() {
         if (generation < max_gen) {
-            generation++;
+            generation++; 
         }
     }
     // Méthode pour comparer la génération avec max

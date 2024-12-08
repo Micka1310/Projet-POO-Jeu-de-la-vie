@@ -23,11 +23,7 @@ public:
     void getTaille();                                           // Afficher ou modifier la taille
     void ajouterLignesColonnes(int ajoutRows, int ajoutCols);
     void compter_voisin();                                      // Afficher ou modifier la taille
-<<<<<<< HEAD
     void afficherGrille();                                      // Afficher la grille entière
-=======
-    void afficherGrille();                                      // Afficher la grille entiÃ¨re
->>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     void PlacerPoint();                                         // Placer un point dans la grille
 
     void setFilename(const string& f) { filename = f; }
