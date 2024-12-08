@@ -2,10 +2,14 @@
 
 using namespace std;
 
+<<<<<<< HEAD
+// Constructeur par défaut
+=======
 // Constructeur par dÃ©faut
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
 Grille::Grille() : rows(0), cols(0), grille(0, vector<Case>(0)) { }
 
-// Constructeur paramÃ©trÃ©
+// Constructeur paramétré
 Grille::Grille(int r, int c) : rows(r), cols(c), grille(r, vector<Case>(c)) {
     cout << "Taille de la grille : " << rows << " x " << cols << endl;
     
@@ -19,16 +23,26 @@ void Grille::getTaille() {
     cin >> cols;
 
     // Redimensionner la grille
-    grille.resize(rows, vector<Case>(cols)); // CrÃ©e une grille vide de dimensions rows x cols
+    grille.resize(rows, vector<Case>(cols)); // Crée une grille vide de dimensions rows x cols
 
-    // Initialiser chaque case avec ses coordonnÃ©es
+    // Initialiser chaque case avec ses coordonnées
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            grille[i][j] = Case(i, j, false); // Utilise le constructeur paramÃ©trÃ© de Case
+            grille[i][j] = Case(i, j, false); // Utilise le constructeur paramétré de Case
         }
     }
 
-    cout << "La grille a ete initialisÃ©e avec ses dimensions et cases." << endl;
+    cout << "La grille a ete initialisée avec ses dimensions et cases." << endl;
+}
+
+// Mécanisme pour agrandir/réduire dynamiquement la taille.
+void Grille::ajouterLignesColonnes(int ajoutRows, int ajoutCols) {
+    rows += ajoutRows;
+    cols += ajoutCols;
+    grille.resize(rows, vector<Case>(cols));
+    for (int i = 0; i < rows; ++i) {
+        grille[i].resize(cols, Case(i, cols, false)); // Ajuster chaque ligne
+    }
 }
 
 // MÃ©canisme pour agrandir/rÃ©duire dynamiquement la taille.
@@ -47,8 +61,13 @@ void Grille::afficherGrille() {
         cout << "Erreur : la grille est vide." << endl;
         return;
     }
+<<<<<<< HEAD
+    // Affichage des numéros de colonnes
+    cout << "     "; // Espace pour aligner avec les numéros de lignes
+=======
     // Affichage des numÃ©ros de colonnes
     cout << "     "; // Espace pour aligner avec les numÃ©ros de lignes
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     for (size_t col = 0; col < grille[0].size(); ++col) {
         if (col < 9){
             cout << col+1 << "  ";
@@ -60,7 +79,7 @@ void Grille::afficherGrille() {
     
         
     }
-    cout << "\n     "; // Espace pour aligner avec les numÃ©ros de lignes
+    cout << "\n     "; // Espace pour aligner avec les numéros de lignes
     for (size_t col = 0; col < grille[0].size(); ++col) {
         if (col < 9){
             cout << "--- ";
@@ -74,10 +93,10 @@ void Grille::afficherGrille() {
     }
     cout << "\n";
 
-    // Affichage de la grille avec numÃ©ros de lignes
+    // Affichage de la grille avec numéros de lignes
     for (size_t row = 0; row < grille.size(); ++row) {
         if (row < 9){
-            cout << row+1 << "  | "; // NumÃ©ro de ligne avec une barre pour sÃ©parer
+            cout << row+1 << "  | "; // Numéro de ligne avec une barre pour séparer
         } else if (row <99){
             cout << row+1 << " | ";
         } else {
@@ -96,10 +115,10 @@ void Grille::PlacerPoint() {
     cout << "Points :" << endl;
     cout << "Entrez l'abscisse : ";
     cin >> row; // Abscisse
-    cout << "Entrez l'ordonnÃ©e : ";
-    cin >> col; // OrdonnÃ©e
+    cout << "Entrez l'ordonnée : ";
+    cin >> col; // Ordonnée
 
-    // VÃ©rification des bornes
+    // Vérification des bornes
     if (row < 1 || row > rows || col < 1 || col > cols) {
         cout << "Erreur : Les coordonnees (" << row << ", " << col << ") sont hors de la grille." << endl;
         return;
@@ -107,10 +126,10 @@ void Grille::PlacerPoint() {
 
     if (!grille[row - 1][col - 1].getEtat()){
         grille[row - 1][col - 1].setEtat(true);
-        cout << "La case a ete place a la ligne nÂ°" << row << " et la colonne nÂ°" << col << " de la grille !" << endl;
+        cout << "La case a ete place a la ligne n°" << row << " et la colonne n°" << col << " de la grille !" << endl;
     } else {
         grille[row - 1][col - 1].setEtat(false);
-        cout << "La case a ete enleve a la ligne nÂ°" << row << " et la colonne nÂ°" << col << " de la grille !" << endl;
+        cout << "La case a ete enleve a la ligne n°" << row << " et la colonne n°" << col << " de la grille !" << endl;
     }
 }
 
@@ -143,7 +162,11 @@ void Grille::compter_voisin() {
             if (y != cols - 1 && grille[x][y + 1].getEtat()) {
                 nb_voisin++;
             }
+<<<<<<< HEAD
+            // sauvegarder les changements d'états dans un tableau temporaire
+=======
             // sauvegarder les changements d'Ã©tats dans un tableau temporaire
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
             if (nb_voisin == 3 && !grille[x][y].getEtat()) {
                 Save[x][y] = true;
             }
@@ -155,7 +178,11 @@ void Grille::compter_voisin() {
             }
         }
     }
+<<<<<<< HEAD
+    //Récupérer les nouveaux états
+=======
     //RÃ©cupÃ©rer les nouveaux Ã©tats
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     for (int x = 0; x <= rows - 1; x++) {
         for (int y = 0; y <= cols - 1; y++) {
             grille[x][y].setEtat(Save[x][y]);
@@ -181,23 +208,38 @@ void Grille::getTailleFichier() {
     }    
 
     // Redimensionner la grille
+<<<<<<< HEAD
+    grille.resize(rows, vector<Case>(cols)); // Crée une grille vide de dimensions rows x cols
+
+    // Initialiser chaque case avec ses coordonnées
+=======
     grille.resize(rows, vector<Case>(cols)); // CrÃ©e une grille vide de dimensions rows x cols
 
     // Initialiser chaque case avec ses coordonnÃ©es
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     for (int i = 0; i < rows; ++i) {
         if (getline(file, line)) { // Lire chaque ligne de la matrice
             istringstream iss(line);
             for (int j = 0; j < cols; ++j) {
                 int etat;
+<<<<<<< HEAD
+                iss >> etat; // Lire l'état de chaque cellule (0 ou 1)
+                grille[i][j] = Case(i, j, etat == 1); // Initialiser chaque case avec l'état lu
+=======
                 iss >> etat; // Lire l'Ã©tat de chaque cellule (0 ou 1)
                 grille[i][j] = Case(i, j, etat == 1); // Initialiser chaque case avec l'Ã©tat lu
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
             }
         }
     }
 
     file.close();
     cout << "Le fichier contient " << rows << " lignes et " << cols << " colonnes." << std::endl;
+<<<<<<< HEAD
+    cout << "La grille a ete initialisée avec ses dimensions et cases." << endl;
+=======
     cout << "La grille a ete initialisÃ©e avec ses dimensions et cases." << endl;
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
 }
 
 
@@ -211,7 +253,11 @@ bool Grille::chargerGrilleDepuisFichier(const string& filename, vector<vector<Ca
     int ligneCount, colCount;
     file >> ligneCount >> colCount;
 
+<<<<<<< HEAD
+    // Vérifier si les dimensions sont valides
+=======
     // VÃ©rifier si les dimensions sont valides
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     if (ligneCount <= 0 || colCount <= 0) {
         cerr << "Erreur : dimensions invalides dans le fichier." << endl;
         return false;
@@ -227,6 +273,16 @@ bool Grille::chargerGrilleDepuisFichier(const string& filename, vector<vector<Ca
         for (int j = 0; j < colCount; ++j) {
             int etat;
             if (!(file >> etat)) {
+<<<<<<< HEAD
+                cerr << "Erreur : lecture de la case à la ligne " << i + 1 << ", colonne " << j + 1 << " impossible." << endl;
+                return false;
+            }
+            grille[i][j] = Case(i, j, etat == 1); // Initialiser chaque case avec l'état lu
+        }
+    }
+
+    this->grille = grille; // Appliquer la grille temporaire à l'attribut de l'objet
+=======
                 cerr << "Erreur : lecture de la case Ã  la ligne " << i + 1 << ", colonne " << j + 1 << " impossible." << endl;
                 return false;
             }
@@ -235,6 +291,7 @@ bool Grille::chargerGrilleDepuisFichier(const string& filename, vector<vector<Ca
     }
 
     this->grille = grille; // Appliquer la grille temporaire Ã  l'attribut de l'objet
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     file.close();
     return true;
 }

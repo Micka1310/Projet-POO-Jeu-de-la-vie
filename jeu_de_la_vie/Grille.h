@@ -17,13 +17,17 @@ public:
     vector<vector<Case>> grille; // Tableau dynamique 2D
     vector<vector<int>> grid; // Tableau dynamique 2D pour le graphique
 
-    Grille(); // Constructeur par dÃ©faut
+    Grille(); // Constructeur par défaut
     Grille(int r, int c);
 
     void getTaille();                                           // Afficher ou modifier la taille
     void ajouterLignesColonnes(int ajoutRows, int ajoutCols);
     void compter_voisin();                                      // Afficher ou modifier la taille
+<<<<<<< HEAD
+    void afficherGrille();                                      // Afficher la grille entière
+=======
     void afficherGrille();                                      // Afficher la grille entiÃ¨re
+>>>>>>> 19ceb25b456b457f440fbc76846cf8461b1181a2
     void PlacerPoint();                                         // Placer un point dans la grille
 
     void setFilename(const string& f) { filename = f; }
