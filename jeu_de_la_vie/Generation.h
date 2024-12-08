@@ -3,17 +3,17 @@
 class Generation {
 private:
     int generation;  // Num de la generation
-    int max_gen;     // Nombre max de gÃ©nÃ©rations
+    int max_gen;     // Nombre max de générations
 public:
     // Constructeur
     Generation(int maxGenerations) : generation(0), max_gen(maxGenerations) {}
-    // MÃ©thode incrÃ©menter gÃ©nÃ©ration
+    // Méthode incrémenter génération
     void incrementer() {
         if (generation < max_gen) {
             generation++;
         }
     }
-    // MÃ©thode pour comparer la gÃ©nÃ©ration avec max
+    // Méthode pour comparer la génération avec max
     bool estTerminee() const {
         return generation >= max_gen;
     }
@@ -26,9 +26,9 @@ public:
     void arreter() {
         generation = max_gen;
     }
-    // Affichage des informations de la gÃ©nÃ©ration
+    // Affichage des informations de la génération
     void afficherGeneration() const {
-        std::cout << "Generation actuelle : " << generation+1
-                  << " / Nombre maximum de generations : " << max_gen << std::endl;
+        std::cout << "Generation actuelle : " << generation + 1
+            << " / Nombre maximum de generations : " << max_gen << std::endl;
     }
 };

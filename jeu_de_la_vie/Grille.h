@@ -2,20 +2,29 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <sstream>
+#include <fstream>
+#include <string>
+
+using namespace std;
 
 
 class Grille {
 private:
-    Case* OCase;
+    string filename;
 public:
-    int rows, cols; 
-    std::vector<std::vector<Case>> grille; // Tableau dynamique 2D
+    int rows, cols;
+    vector<vector<Case>> grille; // Tableau dynamique 2D
 
-    Grille(); // Constructeur par dÃ©faut
+    Grille(); // Constructeur par défaut
     Grille(int r, int c);
 
-    void getTaille();        // Afficher ou modifier la taille
-    void compter_voisin ();   // Afficher ou modifier la taille
-    void afficherGrille();   // Afficher la grille entiÃ¨re
-    void PlacerPoint();      // Placer un point dans la grille
+    void getTaille();                        // Afficher ou modifier la taille
+    vector<vector<bool>> compter_voisin();   // Afficher ou modifier la taille
+    void afficherGrille();                   // Afficher la grille entière
+    void PlacerPoint();                      // Placer un point dans la grille
+
+    void setFilename(const string& f) { filename = f; }
+    void getTailleFichier();
+    vector<vector<int>> chargerGrilleDepuisFichier();
 };
