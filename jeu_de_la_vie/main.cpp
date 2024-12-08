@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <thread>
 #include "Grille.h"
 #include "Generation.h"
 #include "interface_graphique.h"
+
 
 using namespace std;
 
@@ -11,9 +13,9 @@ int main()
 {
     Grille maGrille;
 
-    Interface interface(800, 600);
+    Interface interface(2000, 1500);
 
-    interface.MenuBase();
+    thread graphicThread(&Interface::MenuBase, interface);
 
     cout << "0: Utiliser un fichier prédéfini\n1: Entrer les parametres manuellement\n" << endl;
     string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";

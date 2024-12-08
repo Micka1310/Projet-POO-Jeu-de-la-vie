@@ -31,8 +31,22 @@ void Grille::getTaille() {
     cout << "La grille a ete initialisée avec ses dimensions et cases." << endl;
 }
 
+// Mécanisme pour agrandir/réduire dynamiquement la taille.
+void Grille::ajouterLignesColonnes(int ajoutRows, int ajoutCols) {
+    rows += ajoutRows;
+    cols += ajoutCols;
+    grille.resize(rows, vector<Case>(cols));
+    for (int i = 0; i < rows; ++i) {
+        grille[i].resize(cols, Case(i, cols, false)); // Ajuster chaque ligne
+    }
+}
+
 // Afficher la grille
 void Grille::afficherGrille() {
+    if (grille.empty() || grille[0].empty()) {
+        cout << "Erreur : la grille est vide." << endl;
+        return;
+    }
     // Affichage des numéros de colonnes
     cout << "     "; // Espace pour aligner avec les numéros de lignes
     for (size_t col = 0; col < grille[0].size(); ++col) {
@@ -100,10 +114,10 @@ void Grille::PlacerPoint() {
     }
 }
 
-vector<vector<bool>> Grille::compter_voisin() {
-    vector<vector<bool>> Save(rows, vector<bool>(cols, false));
-    for (int x = 0; x <= rows - 1; x++) {
-        for (int y = 0; y <= cols - 1; y++) {
+void Grille::compter_voisin() {
+    vector<vector<int>> Save(rows, vector<int>(cols, false));
+    for (int x = 0; x < rows; x++) {
+        for (int y = 0; y < cols; y++) {
             int nb_voisin = 0;
             if (x != 0 && y != 0 && grille[x - 1][y - 1].getEtat()) {
                 nb_voisin++;
@@ -147,15 +161,6 @@ vector<vector<bool>> Grille::compter_voisin() {
             grille[x][y].setEtat(Save[x][y]);
         }
     }
-
-    // Copier les états dans un tableau nommé "grid" pour le retour
-    vector<vector<bool>> grid(rows, vector<bool>(cols));
-    for (int x = 0; x < rows; x++) {
-        for (int y = 0; y < cols; y++) {
-            grid[x][y] = Save[x][y] ? 1 : 0;
-        }
-    }
-    return grid;
 }
 
 //PARTIE AVEC FICHIER
@@ -163,8 +168,8 @@ void Grille::getTailleFichier() {
     
     ifstream file(filename);
     if (!file.is_open()) {
-        cerr << "Erreur d'ouverture du fichier." << endl;
-        while(true);
+        cerr << "Erreur : impossible d'ouvrir le fichier " << filename << endl;
+        return;
     }
 
     string line;
@@ -196,46 +201,41 @@ void Grille::getTailleFichier() {
 }
 
 
-vector<vector<int>> Grille::chargerGrilleDepuisFichier() {
-    string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";  // Chemin vers le fichier
+bool Grille::chargerGrilleDepuisFichier(const string& filename, vector<vector<Case>>& grille) {
     ifstream file(filename);
     if (!file.is_open()) {
-        cerr << "Erreur d'ouverture du fichier." << endl;
-        return {}; // Retourne une grille vide en cas d'erreur
+        cerr << "Erreur : impossible d'ouvrir le fichier " << filename << endl;
+        return false;
     }
 
-    string line;
-    int rows, cols;
-    vector<vector<int>> grille;
+    int ligneCount, colCount;
+    file >> ligneCount >> colCount;
 
-    // Lire les dimensions de la grille
-    if (getline(file, line)) {
-        istringstream iss(line);
-        iss >> rows >> cols;
-    }
-    else {
-        cerr << "Erreur de lecture des dimensions." << endl;
-        return {}; // Retourne une grille vide en cas d'erreur
+    // Vérifier si les dimensions sont valides
+    if (ligneCount <= 0 || colCount <= 0) {
+        cerr << "Erreur : dimensions invalides dans le fichier." << endl;
+        return false;
     }
 
-    // Redimensionner la grille pour qu'elle corresponde aux dimensions lues
-    grille.resize(rows, vector<int>(cols));
+    // Redimensionner la grille
+    grille.resize(ligneCount, vector<Case>(colCount));
+    rows = ligneCount;
+    cols = colCount;
 
-    // Lire les données et les stocker dans la grille
-    for (int i = 0; i < rows; ++i) {
-        if (getline(file, line)) { // Lire chaque ligne de la matrice
-            istringstream iss(line);
-            for (int j = 0; j < cols; ++j) {
-                iss >> grille[i][j]; // Lire l'état de chaque cellule (0 ou 1)
+    // Remplir la grille avec les valeurs lues du fichier
+    for (int i = 0; i < ligneCount; ++i) {
+        for (int j = 0; j < colCount; ++j) {
+            int etat;
+            if (!(file >> etat)) {
+                cerr << "Erreur : lecture de la case à la ligne " << i + 1 << ", colonne " << j + 1 << " impossible." << endl;
+                return false;
             }
-        }
-        else {
-            cerr << "Erreur de lecture des données de la grille." << endl;
-            return {}; // Retourne une grille vide en cas d'erreur
+            grille[i][j] = Case(i, j, etat == 1); // Initialiser chaque case avec l'état lu
         }
     }
 
+    this->grille = grille; // Appliquer la grille temporaire à l'attribut de l'objet
     file.close();
-    return grille; // Retourne la grille complète
+    return true;
 }
 
