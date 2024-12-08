@@ -12,7 +12,8 @@ Text txt;
 Generation gen(20);
 
 void Interface::MenuBase() {
-    string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";
+    //string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";
+    string filename = "jeu.txt";
     RenderWindow window(VideoMode(largeur_fenetre, longueur_fenetre), "Jeu de la vie");
     LoadFont();
     graphiqueActif = false;
@@ -32,10 +33,10 @@ void Interface::MenuBase() {
         window.clear(Color::White);
         
         SetTxt(txt, "BIENVENUE SUR LE JEU DE LA VIE");
-     
+        window.draw(txt);
 
         if (drawButton(window, 100, 300, 200, 50, "Jouer en mode graphique", "ressources/lobster.ttf", Color::Green, Color::Black)) {
-            for (int z = 0; z < 20; z++) {
+            for (int z = 0; z < 4; z++) {
                 maGrille.compter_voisin();                          // Met à jour l'état de la grille
                 gameGraph(window, maGrille.grille);                 // Redessine la grille avec l'état mis à jour
                 gen.afficherGeneration();                           // Affiche la génération
@@ -48,6 +49,7 @@ void Interface::MenuBase() {
         }
         if (drawButton(window, 100, 500, 200, 50, "Crédits", "ressources/lobster.ttf", Color::Green, Color::Black)) {
             credits(window);
+            window.draw(txt);
         }
 
         window.display();
@@ -60,6 +62,7 @@ void Interface::SetTxt(Text & txt, string str) {
     txt.setCharacterSize(26);
     txt.setFillColor(Color::Black);
     txt.setStyle(Text::Bold | Text::Underlined);
+    
 }
 
 void Interface::LoadFont() {
@@ -91,7 +94,7 @@ bool Interface::drawButton(RenderWindow& window, float x, float y, float width, 
     Text buttonText;
     buttonText.setFont(font);
     buttonText.setString(label);
-    buttonText.setCharacterSize(20);
+    buttonText.setCharacterSize(30);
     buttonText.setFillColor(textColor);
 
     // Centrer le texte dans le bouton
@@ -158,34 +161,10 @@ void Interface::gameGraph(RenderWindow& window, const vector<vector<Case>>& gril
     window.display();
 }
 
-
 void Interface::credits(RenderWindow& window) {
-    // Liste des crédits
-    vector<string> credits = {
-        "Tilal MESSAOUDI",
-        "Diego ODDOUX",
-        "Bilel ROUABAH",
-        "Mickael KING"
-    };
-
-    // Création d'une font pour le texte
+    
     LoadFont();
-
     // Configuration des textes
-    std::vector<Text> textes;
-    for (const auto& credit : credits) {
-        sf::Text text;
-        text.setFont(font);
-        text.setString(credit);
-        text.setCharacterSize(24);
-        text.setFillColor(Color::Black);
-        text.setPosition(window.getSize().x - 200, 50 + textes.size() * 30);  // Positionne à droite
-        textes.push_back(text);
-    }
-
-    // Affichage des crédits
-    for (const auto& text : textes) {
-        window.draw(text);
-    }
+    SetTxt(txt, "CREDITS :\n- Tilal MESSAOUDI \n- Mickael KING \n- Diego ODDOUX--AUBER\n- Bilel ROUABAH");
     window.display();
 }

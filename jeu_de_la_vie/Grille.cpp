@@ -115,9 +115,9 @@ void Grille::PlacerPoint() {
 }
 
 void Grille::compter_voisin() {
-    vector<vector<int>> Save(rows, vector<int>(cols, false));
-    for (int x = 0; x < rows; x++) {
-        for (int y = 0; y < cols; y++) {
+    vector<vector<bool>> Save(rows, std::vector<bool>(cols, false));
+    for (int x = 0; x <= rows - 1; x++) {
+        for (int y = 0; y <= cols - 1; y++) {
             int nb_voisin = 0;
             if (x != 0 && y != 0 && grille[x - 1][y - 1].getEtat()) {
                 nb_voisin++;
