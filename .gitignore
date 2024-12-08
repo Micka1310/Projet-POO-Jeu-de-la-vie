@@ -49,3 +49,13 @@
 *.inl
 *.pdb
 *.cmake
+*.command.1.tlog
+*.read.1.tlog
+*.write.1.tlog
+*.items.tlog
+*.lastbuildstate
+*.secondary.1.tlog
+*.idb
+*.exe.recipe
+*.ilk
+*.log

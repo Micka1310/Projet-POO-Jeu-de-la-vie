@@ -1,4 +1,5 @@
 #pragma once
+#include "case.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <functional>
@@ -17,9 +18,9 @@ private:
     bool graphiqueActif;
     Font font;
 
-    const float CASE_SIZE = 10.0f; // Taille d'une case
-    const float X_OFFSET = 320.0f; // Décalage de départ horizontal
-    const float Y_OFFSET = 50.0f; // Décalage de départ vertical
+    const float CASE_SIZE = 20.0f; // Taille d'une case
+    const float X_OFFSET = 440.0f; // DÃ©calage de dÃ©part horizontal
+    const float Y_OFFSET = 50.0f; // DÃ©calage de dÃ©part vertical
     const Color CASE_ALIVE_COLOR = Color::Red; // Couleur des cellules vivantes
     const Color CASE_DEAD_COLOR = Color::Cyan;  // Couleur des cellules mortes
     const Color BORDER_COLOR = Color::Black;     // Couleur de la bordure des cases
@@ -35,5 +36,5 @@ public:
         const string& fontPath, Color bgColor = Color::Blue, Color textColor = Color::White
     );
     void credits(RenderWindow& window);
-    vector < vector<int>> gameGraph(RenderWindow& window, vector<vector<int>>& grille);
+    void gameGraph(RenderWindow& window, const vector<vector<Case>>& grille);
 };

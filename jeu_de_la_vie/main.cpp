@@ -5,18 +5,17 @@
 #include "Generation.h"
 #include "interface_graphique.h"
 
+
 using namespace std;
 
 int main()
 {
     Grille maGrille;
-
-    Interface interface(800, 600);
-
+    Interface interface(2000, 1500);
     interface.MenuBase();
 
-    cout << "0: Utiliser un fichier prédéfini\n1: Entrer les parametres manuellement\n" << endl;
-    string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";
+    cout << "0: Utiliser un fichier prÃ©dÃ©fini\n1: Entrer les parametres manuellement\n" << endl;
+    string filename = "jeu.txt";
     int choix1;
     cin >> choix1;
     if (choix1 == 0)
@@ -31,8 +30,6 @@ int main()
             maGrille.afficherGrille();
             gen.incrementer();
         }
-        
-        
     }
     else if (choix1 == 1) {
         int choix2 = 1;
@@ -58,6 +55,7 @@ int main()
             maGrille.compter_voisin();
             maGrille.afficherGrille();
             gen.incrementer();
+            
         }
     }
     
