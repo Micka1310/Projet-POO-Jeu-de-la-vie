@@ -15,7 +15,7 @@ public:
 	// constructeur
 	Case();
 	Case(int x, int y, bool etat);
-	
+
 	// destructeur
 	~Case();
 
@@ -29,10 +29,6 @@ public:
 	void setCoord_y(int y);
 	void setEtat(bool etat);
 
-	// m�thode
+	// methode
 	void afficherCase() const;
 };
-
-
-
-

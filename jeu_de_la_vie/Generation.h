@@ -4,7 +4,8 @@
 class Generation {
 private:
     int generation;  // Num de la generation
-    int max_gen;     // Nombre max de générations
+    int max_gen;     // Nombre max de gÃ©nÃ©rations
+
 
 public:
     // Constructeur
@@ -13,7 +14,7 @@ public:
     // Destructeur
     ~Generation();
 
-    // Méthodes
+    // MÃ©thodes
     void incrementer();
     bool estTerminee() const;
     int getGeneration() const;

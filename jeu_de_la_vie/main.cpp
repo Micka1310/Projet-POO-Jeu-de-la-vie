@@ -1,38 +1,66 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "Grille.h"
 #include "Generation.h"
+#include "interface_graphique.h"
 
 using namespace std;
 
 int main()
 {
-    int choix = 1;
     Grille maGrille;
-    maGrille.getTaille();
-    maGrille.afficherGrille();
-    while (choix == 1)
+
+    Interface interface(800, 600);
+
+    interface.MenuBase();
+
+    cout << "0: Utiliser un fichier prÈdÈfini\n1: Entrer les parametres manuellement\n" << endl;
+    string filename = "C:/Users/tilal/Documents/CESI/DEUXIEME ANNEE/Livrables/Bloc POO/Livrable 2/jeu_de_la_vie_POO/jeu.txt";
+    int choix1;
+    cin >> choix1;
+    if (choix1 == 0)
     {
-        cout << "Voulez placer une case? :\n";
-        cout << "1. Oui\n";
-        cout << "0. Non\n";
-        cout << "Votre choix : ";
-        cin >> choix;
-        if (choix == 1)
-        {
-            maGrille.PlacerPoint();
+        Generation gen(20);
+        maGrille.setFilename(filename);
+        maGrille.getTailleFichier();
+        
+        while (!gen.estTerminee()){    
+            gen.afficherGeneration();
+            maGrille.compter_voisin();
             maGrille.afficherGrille();
+            gen.incrementer();
+        }
+        
+        
+    }
+    else if (choix1 == 1) {
+        int choix2 = 1;
+        maGrille.getTaille();
+        maGrille.afficherGrille();
+        while (choix2 == 1) {
+            cout << "Voulez placer une case? :\n";
+            cout << "1. Oui\n";
+            cout << "0. Non\n";
+            cout << "Votre choix : ";
+            cin >> choix2;
+            if (choix2 == 1) {
+                maGrille.PlacerPoint();
+                maGrille.afficherGrille();
+            }
+        }
+        int choix3;
+        cout << "Veuillez entrer le nombre de generation pour la simulation :\n";
+        cin >> choix3;
+        Generation gen(choix3);
+        while (!gen.estTerminee()) {
+            gen.afficherGeneration();
+            maGrille.compter_voisin();
+            maGrille.afficherGrille();
+            gen.incrementer();
         }
     }
-    // Initialisation avec un maximum de 10 g√©n√©rations
-    Generation gen(10);
     
-    while (!gen.estTerminee())
-    {
-        gen.afficherGeneration();
-        maGrille.compter_voisin();
-        maGrille.afficherGrille();
-        gen.incrementer();
-    }
     std::cout << "Le processus est termine." << std::endl;
     return 0;
 }

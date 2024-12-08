@@ -2,10 +2,10 @@
 
 using namespace std;
 
-// Constructeur par dÃ©faut
+// Constructeur par défaut
 Case::Case() : m_coord_x(0), m_coord_y(0), m_etat(false) {}
 
-// Constructeur paramÃ©trÃ©
+// Constructeur paramétré
 Case::Case(int x, int y, bool etat) : m_coord_x(x), m_coord_y(y), m_etat(etat) {
 }
 
@@ -48,7 +48,7 @@ void Case::setEtat(bool etat)
 	m_etat = etat;
 }
 
-// mï¿½thode
+// m?thode
 void Case::afficherCase() const
 {
 	std::cout << "Coordonnee x : " << m_coord_x << std::endl;
