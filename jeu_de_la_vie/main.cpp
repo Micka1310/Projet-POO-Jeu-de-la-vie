@@ -11,10 +11,11 @@ using namespace std;
 int main()
 {
     Grille maGrille;
-    Interface interface(2000, 1500);
+    Interface interface(2500, 1600);
     interface.MenuBase();
 
-    cout << "0: Utiliser un fichier prédéfini\n1: Entrer les parametres manuellement\n" << endl;
+
+    cout << "0: Utiliser un fichier predefini\n1: Entrer les parametres manuellement\n" << endl;
     string filename = "jeu.txt";
     int choix1;
     cin >> choix1;

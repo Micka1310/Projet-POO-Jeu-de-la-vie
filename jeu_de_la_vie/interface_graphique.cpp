@@ -17,12 +17,33 @@ void Interface::MenuBase() {
     RenderWindow window(VideoMode(largeur_fenetre, longueur_fenetre), "Jeu de la vie");
     LoadFont();
     graphiqueActif = false;
+    showcredits = false;
     maGrille.chargerGrilleDepuisFichier(filename, maGrille.grille);
 
     if (!maGrille.chargerGrilleDepuisFichier(filename, maGrille.grille)) {
         cerr << "Erreur : Chargement de la grille échoué !" << endl;
         return;
     }
+
+    Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("arriere.png")) {
+        cerr << "Erreur : Impossible de charger l'image de fond." << endl;
+        return;
+    }
+
+    const int WINDOW_WIDTH = 3000;
+    const int WINDOW_HEIGHT = 1800;
+
+    // Créer un sprite à partir de la texture
+    Sprite backgroundSprite;
+    backgroundSprite.setTexture(backgroundTexture);
+
+    // Ajuster la taille du sprite à celle de la fenêtre (optionnel)
+    FloatRect textureRect = backgroundSprite.getLocalBounds();
+    backgroundSprite.setScale(
+        static_cast<float>(WINDOW_WIDTH) / textureRect.width,
+        static_cast<float>(WINDOW_HEIGHT) / textureRect.height
+    );
 
     while (window.isOpen()) {
         Event event;
@@ -31,36 +52,69 @@ void Interface::MenuBase() {
         }
 
         window.clear(Color::White);
-        
-        SetTxt(txt, "BIENVENUE SUR LE JEU DE LA VIE");
+        window.draw(backgroundSprite);
+
+        if (showcredits == true) {
+            credits(window);
+            txt.setPosition(window.getSize().x - txt.getLocalBounds().width, 200);
+            window.draw(txt);
+            window.display();
+        }
+
+        SetTxtTitre(txt, "BIENVENUE SUR LE JEU DE LA VIE");
+        txt.setPosition(window.getSize().x / 2, 60); // En haut au centre
         window.draw(txt);
 
-        if (drawButton(window, 100, 300, 200, 50, "Jouer en mode graphique", "ressources/lobster.ttf", Color::Green, Color::Black)) {
-            for (int z = 0; z < 4; z++) {
+        if (drawButton(window, 100, 300, 350, 150, "Jouer en mode graphique", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
+            for (int z = 0; z < 100; z++) {
                 maGrille.compter_voisin();                          // Met à jour l'état de la grille
                 gameGraph(window, maGrille.grille);                 // Redessine la grille avec l'état mis à jour
-                gen.afficherGeneration();                           // Affiche la génération
                 gen.incrementer();                                  // Passe à la génération suivante
                 this_thread::sleep_for(std::chrono::seconds(1));    // Pause de 1 seconde
+                if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+                    // Action lorsque Échap est pressée
+                    window.close(); // fermer la fenêtre
+                    return;
+                }
             }
         }
-        if (drawButton(window, 100, 400, 200, 50, "Jouer en mode console", "ressources/lobster.ttf", Color::Green, Color::Black)) {
+        if (drawButton(window, 100, 800, 350, 150, "Jouer en mode console", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
             window.close();
         }
-        if (drawButton(window, 100, 500, 200, 50, "Crédits", "ressources/lobster.ttf", Color::Green, Color::Black)) {
-            credits(window);
-            window.draw(txt);
+        if (drawButton(window, 100, 1300, 350, 150, "Crédits", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
+            showcredits = true;
+            window.display();
         }
 
         window.display();
     }
 }
 
+void Interface::SetTxtTitre(Text& txt, string str) {
+    txt.setFont(font);
+    txt.setString(str);
+    txt.setCharacterSize(60);
+    txt.setFillColor(Color::White);
+    txt.setStyle(Text::Bold | Text::Underlined);
+    FloatRect textBounds = txt.getLocalBounds();
+    txt.setOrigin(textBounds.width / 2, textBounds.top); // Centrage horizontal
+}
+
+void Interface::SetTxtCredits(Text& txt, string str) {
+    txt.setFont(font);
+    txt.setString(str);
+    txt.setCharacterSize(60);
+    txt.setFillColor(Color::White);
+    txt.setStyle(Text::Bold | Text::Underlined);
+    FloatRect textBounds = txt.getLocalBounds();
+    txt.setOrigin(textBounds.width / 2, textBounds.top); // Centrage horizontal
+}
+
 void Interface::SetTxt(Text & txt, string str) {
     txt.setFont(font);
     txt.setString(str);
     txt.setCharacterSize(26);
-    txt.setFillColor(Color::Black);
+    txt.setFillColor(Color::White);
     txt.setStyle(Text::Bold | Text::Underlined);
     
 }
