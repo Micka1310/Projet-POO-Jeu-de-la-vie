@@ -16,6 +16,7 @@ int main()
 
 
     cout << "0: Utiliser un fichier predefini\n1: Entrer les parametres manuellement\n" << endl;
+
     string filename = "jeu.txt";
     int choix1;
     cin >> choix1;

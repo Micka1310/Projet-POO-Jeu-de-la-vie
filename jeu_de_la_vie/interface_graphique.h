@@ -20,8 +20,8 @@ private:
     Font font;
 
     const float CASE_SIZE = 25.0f; // Taille d'une case
-    const float X_OFFSET = 900.0f; // Décalage de départ horizontal
-    const float Y_OFFSET = 200.0f; // Décalage de départ vertical
+    const float X_OFFSET = 900.0f; // DÃ©calage de dÃ©part horizontal
+    const float Y_OFFSET = 200.0f; // DÃ©calage de dÃ©part vertical
     const Color CASE_ALIVE_COLOR = Color::Red; // Couleur des cellules vivantes
     const Color CASE_DEAD_COLOR = Color::Cyan;  // Couleur des cellules mortes
     const Color BORDER_COLOR = Color::Black;     // Couleur de la bordure des cases
@@ -30,8 +30,10 @@ public:
     Interface(int largeur, int longueur);
     void MenuBase();
     void SetTxt(Text& txt, string str);
+
     void SetTxtTitre(Text& txt, string str);
     void SetTxtCredits(Text& txt, string str);
+
     void LoadFont();
     void inputHandler(Event& event, Window& window);
     bool drawButton(

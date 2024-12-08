@@ -17,11 +17,12 @@ void Interface::MenuBase() {
     RenderWindow window(VideoMode(largeur_fenetre, longueur_fenetre), "Jeu de la vie");
     LoadFont();
     graphiqueActif = false;
+
     showcredits = false;
     maGrille.chargerGrilleDepuisFichier(filename, maGrille.grille);
 
     if (!maGrille.chargerGrilleDepuisFichier(filename, maGrille.grille)) {
-        cerr << "Erreur : Chargement de la grille échoué !" << endl;
+        cerr << "Erreur : Chargement de la grille Ã©chouÃ© !" << endl;
         return;
     }
 
@@ -34,11 +35,11 @@ void Interface::MenuBase() {
     const int WINDOW_WIDTH = 3000;
     const int WINDOW_HEIGHT = 1800;
 
-    // Créer un sprite à partir de la texture
+    // CrÃ©er un sprite Ã  partir de la texture
     Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
-    // Ajuster la taille du sprite à celle de la fenêtre (optionnel)
+    // Ajuster la taille du sprite Ã  celle de la fenÃªtre (optionnel)
     FloatRect textureRect = backgroundSprite.getLocalBounds();
     backgroundSprite.setScale(
         static_cast<float>(WINDOW_WIDTH) / textureRect.width,
@@ -67,13 +68,13 @@ void Interface::MenuBase() {
 
         if (drawButton(window, 100, 300, 350, 150, "Jouer en mode graphique", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
             for (int z = 0; z < 100; z++) {
-                maGrille.compter_voisin();                          // Met à jour l'état de la grille
-                gameGraph(window, maGrille.grille);                 // Redessine la grille avec l'état mis à jour
-                gen.incrementer();                                  // Passe à la génération suivante
+                maGrille.compter_voisin();                          // Met Ã  jour l'Ã©tat de la grille
+                gameGraph(window, maGrille.grille);                 // Redessine la grille avec l'Ã©tat mis Ã  jour
+                gen.incrementer();                                  // Passe Ã  la gÃ©nÃ©ration suivante
                 this_thread::sleep_for(std::chrono::seconds(1));    // Pause de 1 seconde
                 if (Keyboard::isKeyPressed(Keyboard::Escape)) {
-                    // Action lorsque Échap est pressée
-                    window.close(); // fermer la fenêtre
+                    // Action lorsque Ã‰chap est pressÃ©e
+                    window.close(); // fermer la fenÃªtre
                     return;
                 }
             }
@@ -81,7 +82,8 @@ void Interface::MenuBase() {
         if (drawButton(window, 100, 800, 350, 150, "Jouer en mode console", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
             window.close();
         }
-        if (drawButton(window, 100, 1300, 350, 150, "Crédits", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
+
+        if (drawButton(window, 100, 1300, 350, 150, "CrÃ©dits", "ressources/lobster.ttf", Color::Cyan, Color::Black)) {
             showcredits = true;
             window.display();
         }
@@ -160,8 +162,8 @@ bool Interface::drawButton(RenderWindow& window, float x, float y, float width, 
     window.draw(buttonShape);
     window.draw(buttonText);
 
-    static bool buttonPressed = false; // État du bouton (pas encore pressé)
-    static bool mouseReleased = true; // Vérifier si le clic est relâché après appui
+    static bool buttonPressed = false; // Ã‰tat du bouton (pas encore pressÃ©)
+    static bool mouseReleased = true; // VÃ©rifier si le clic est relÃ¢chÃ© aprÃ¨s appui
 
     if (Mouse::isButtonPressed(Mouse::Left)) {
         Vector2i mousePos = Mouse::getPosition(window);
@@ -169,12 +171,12 @@ bool Interface::drawButton(RenderWindow& window, float x, float y, float width, 
             if (mouseReleased && !buttonPressed) {
                 buttonPressed = true;
                 mouseReleased = false;
-                return true; // Bouton cliqué une seule fois
+                return true; // Bouton cliquÃ© une seule fois
             }
         }
     }
     else {
-        // Réinitialiser lorsque la souris est relâchée
+        // RÃ©initialiser lorsque la souris est relÃ¢chÃ©e
         mouseReleased = true;
         buttonPressed = false;
     }
@@ -184,7 +186,7 @@ bool Interface::drawButton(RenderWindow& window, float x, float y, float width, 
 
 void Interface::gameGraph(RenderWindow& window, const vector<vector<Case>>& grille) {
     if (maGrille.rows == 0 || maGrille.cols == 0) {
-        cerr << "Erreur : La grille n'est pas initialisée !" << endl;
+        cerr << "Erreur : La grille n'est pas initialisÃ©e !" << endl;
         return;
     }
     for (size_t i = 0; i < grille.size(); ++i) {
@@ -195,7 +197,7 @@ void Interface::gameGraph(RenderWindow& window, const vector<vector<Case>>& gril
             window.draw(caseShape);
 
             // Ajouter une bordure pour chaque case
-            caseShape.setOutlineThickness(1); // Ajustez l'épaisseur si nécessaire
+            caseShape.setOutlineThickness(1); // Ajustez l'Ã©paisseur si nÃ©cessaire
             caseShape.setOutlineColor(BORDER_COLOR);
             caseShape.setFillColor(Color::Transparent); // Bordure uniquement
             window.draw(caseShape);
