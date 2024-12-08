@@ -16,15 +16,16 @@ public:
     int rows, cols;
     vector<vector<Case>> grille; // Tableau dynamique 2D
 
-    Grille(); // Constructeur par défaut
+    Grille(); // Constructeur par dï¿½faut
     Grille(int r, int c);
 
     void getTaille();                        // Afficher ou modifier la taille
     vector<vector<bool>> compter_voisin();   // Afficher ou modifier la taille
-    void afficherGrille();                   // Afficher la grille entière
+    void afficherGrille();                   // Afficher la grille entiï¿½re
     void PlacerPoint();                      // Placer un point dans la grille
 
     void setFilename(const string& f) { filename = f; }
     void getTailleFichier();
     vector<vector<int>> chargerGrilleDepuisFichier();
+
 };
