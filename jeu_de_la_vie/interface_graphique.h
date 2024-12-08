@@ -19,8 +19,8 @@ private:
     Font font;
 
     const float CASE_SIZE = 20.0f; // Taille d'une case
-    const float X_OFFSET = 440.0f; // Décalage de départ horizontal
-    const float Y_OFFSET = 50.0f; // Décalage de départ vertical
+    const float X_OFFSET = 440.0f; // DÃ©calage de dÃ©part horizontal
+    const float Y_OFFSET = 50.0f; // DÃ©calage de dÃ©part vertical
     const Color CASE_ALIVE_COLOR = Color::Red; // Couleur des cellules vivantes
     const Color CASE_DEAD_COLOR = Color::Cyan;  // Couleur des cellules mortes
     const Color BORDER_COLOR = Color::Black;     // Couleur de la bordure des cases

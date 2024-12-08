@@ -1,4 +1,4 @@
-/*// =====================================
+// =====================================
 // | Test unitaire de la classe "Case" |
 // =====================================
 //
@@ -17,7 +17,7 @@ int main()
 {
 	// Cr�ation d'objet
 	Case case_simple;
-	/*Case case_surcharger(7, 24, true);
+	Case case_surcharger(7, 24, true);
 
 	// Test de m�thode
 	case_simple.afficherCase();
@@ -39,4 +39,4 @@ int main()
 	std::cout << "Le test unitaire de la classe \"Case\" marche ! :)" << std::endl;
 
 	return 0;
-}*/
+}
