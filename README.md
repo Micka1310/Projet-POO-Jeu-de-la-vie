@@ -188,6 +188,7 @@ Voici les 5 bibliothèques SFML disponibles (tout OS confondu) :
 - **-lsfml-network** : Si vous utilisez des fonctionnalités réseau
 
 Exemple :
+
 ![image de ligne de commande 2](image_readme/ligne_de_commande_installation_2.png)
 
 Vous pouvez aussi utiliser le débuggeur de Visual Studio Community 2022.
