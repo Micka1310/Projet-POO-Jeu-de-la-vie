@@ -108,7 +108,7 @@ https://visualstudio.microsoft.com/fr/vs/community/
 
 Ensuite configurer l'installation en choisissant le langage C++.
 
-![image de config C++ dans Visual Studio Community 2022](image_visual_studio_option_dekstop.png)
+![image de config C++ dans Visual Studio Community 2022](image_readme/image_visual_studio_option_dekstop.png)
 
 ### Installation des bibliothèques SFML
 Pensez aussi à installer la bibliothèque **SFML** pour manipuler l'interface graphique.
