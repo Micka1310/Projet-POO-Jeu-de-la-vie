@@ -2,10 +2,23 @@
 Projet de groupe scolaire fait à l'école CESI qui a pour but de créer le jeu de la vie.
 On a utiliser des notions de POO pour achever ce projet
 
-# Technologie utiliser :
+# Sommaire
+- [Technologie utiliser](#technologie-utiliser)
+- [Enoncée du projet](#enoncée-du-projet)
+- [Principe](#principe)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+- [](#)
+
+
+# Technologie utiliser
 **Visual Studio Community 2022, C++, bibliothèque SFML.**
 
-# Enoncer du projet
+# Enoncée du projet
 ## Principe
 Le jeu de la vie désigne un automate cellulaire proposé par le mathématicien John Conway. 
 Il décrit l’évolution d’une population de cellules sur un intervalle de temps discret. 
@@ -85,8 +98,10 @@ Toute tentative de plagiat, toute ressemblance entre les codes livrés, toute in
    Modifiez votre algorithme pour paralléliser le traitement requis pour mettre à jour l’état des cellules sur la grille.
 
 # Installation 
-Tout les membres de l'équipe avait Windows comme OS lors de ce projet.
+## Préréquis
+Tout les membres de l'équipe avait Windows comme OS lors de ce projet donc il est conseiller d'avoir cet OS pour pouvoir executer les codes de ce dépôt.
 
+### Installation de Visual Studio Community
 On a utiliser comme éditeur de texte **Visual Studio Community 2022**.
 
 **Visual Studio Community** est téléchargeable depuis ce lien :
@@ -96,11 +111,85 @@ Ensuite configurer l'installation en choisissant le langage C++.
 
 ![image de config C++ dans Visual Studio Community 2022](image_visual_studio_option_dekstop.png)
 
+### Installation des bibliothèques SFML
 Pensez aussi à installer la bibliothèque **SFML** pour manipuler l'interface graphique.
 Lien vers le site officiel pour installer **SFML** :
 https://www.sfml-dev.org/tutorials/2.6/start-vc.php
 
+## Installation au niveau compilateur
 Le code de ce dépot est compilable avec le compilateur **g++**.
+
+### Installation de g++ sous Linux (Ubuntu/Debian)
+Mettez à jour les paquets :
+
+![image de ligne de commande 7](ligne_de_commande_installation_7.png)
+
+Installer g++ :
+
+![image de ligne de commande 8](ligne_de_commande_installation_8.png)
+
+### Installation de g++ sous Mac OS
+Mettez à jour les paquets :
+
+![image de ligne de commande 9](ligne_de_commande_installation_9.png)
+
+Installer g++ :
+
+![image de ligne de commande 10](ligne_de_commande_installation_10.png)
+
+### Installation de g++ sous Windows
+Installer d'abord **MinGW** depuis le site officiel : https://www.mingw-w64.org/
+
+Suivez les instructions d'installation et cochez l'option pour installer **g++**.
+
+Ensuite lorsque vous configurez la variable d'environnement, ajoutez le chemin du dossier **bin** de **MinGW** à la variable d'environnement **PATH**.
+
+### Installation sous Windows+
+Sous **windows** pour compiler depuis votre terminal, vous devez utiliser une ligne de commande de cette manière :
+
+![image de ligne de commande 3](ligne_de_commande_installation_3.png)
+
+"-L" pour spécifier les libraries
+"-I" pour spécifier les includes
+
+### Installation sous Mac OS
+Pour **Mac OS**, voici les lignes de commandes pour installer SFML avec **Homebrew**.
+Pour installer **Homebrew** :
+
+![image de ligne de commande 4](ligne_de_commande_installation_4.png)
+
+On le met à jour :
+
+![image de ligne de commande 5](ligne_de_commande_installation_5.png)
+
+Puis l'installation SFML :
+
+![image de ligne de commande 6](ligne_de_commande_installation_6.png)
+
+Enfin pour compiler vos codes sous Mac OS, voici un exemple de ligne de commande :
+
+![image de ligne de commande 3](ligne_de_commande_installation_3.png)
+
+"-L" pour spécifier les libraries
+"-I" pour spécifier les includes
+
+### Installation sous Linux
+Voici les lignes de commandes qu'il faut utiliser pour installer SFML depuis le compilateur sous **Linux** :
+
+![image de ligne de commande 1](ligne_de_commande_installation_1.png)
+
+### Les différentes bibliothèques disponibles
+Ensuite une fois l'installation des bibliothèques se sont faite avec le compilateur, pour pouvoir compiler vos codes, il faut spécifier en paramètres les bibliothèques SFML que vous avez installer.
+
+Voici les 5 bibliothèques SFML disponibles (tout OS confondu) :
+- **-lsfml-graphics"** : Lie la bibliothèque pour les graphismes.
+- **-lsfml-window** : Lie la bibliothèque pour la gestion des fenêtres.
+- **-lsfml-system** : Lie la bibliothèque pour les fonctionnalités système de base.
+- **-lsfml-audio** : Si votre projet utilise des sons ou de la musique
+- **-lsfml-network** : Si vous utilisez des fonctionnalités réseau
+
+Exemple :
+![image de ligne de commande 2](ligne_de_commande_installation_2.png)
 
 Vous pouvez aussi utiliser le débuggeur de Visual Studio Community 2022.
 Fonctionnera seulement si vous avez bien installer et configurer l'environnement par rapport à ces bibliothèques.
