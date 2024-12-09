@@ -1,29 +1,28 @@
 # Projet-POO-Jeu-de-la-vie
 Projet de groupe scolaire fait à l'école CESI qui a pour but de créer le jeu de la vie.
-On a utiliser des notions de POO pour achever ce projet
+On a utilisé des notions de POO pour achever ce projet
 
 # Sommaire
-- [Technologie utiliser](#technologie-utiliser)
-- [Enoncée du projet](#enoncée-du-projet)
+- [Technologie utilisée](#technologie-utilisée)
+- [Énoncée du projet](#énoncée-du-projet)
 - [Principe](#principe)
-- [](#)
-- [](#)
-- [](#)
-- [](#)
-- [](#)
-- [](#)
-- [](#)
+- [Spécifications techniques](#spécifications-techniques)
+- [Spécifications fonctionnelles](#spécifications-fonctionnelles)
+- [Installation](#installation)
+- [Préréquis](#préréquis)
+- [Installation au niveau compilateur](#installation-au-niveau-compilateur)
+- [Les différentes bibliothèques disponibles](#les-différentes-bibliothèques-disponibles)
 
 
-# Technologie utiliser
+# Technologie utilisée
 **Visual Studio Community 2022, C++, bibliothèque SFML.**
 
-# Enoncée du projet
+# Énoncée du projet
 ## Principe
 Le jeu de la vie désigne un automate cellulaire proposé par le mathématicien John Conway. 
 Il décrit l’évolution d’une population de cellules sur un intervalle de temps discret. 
 Les cellules placées dans une grille rectangulaire deux dimensionnelle sont caractérisées par deux états ; elles sont soit vivantes, soit mortes. 
-A l’exclusion des bordures, le voisinage d’une cellule est formé par 8 autres cellules directement adjacentes. 
+À l’exclusion des bordures, le voisinage d’une cellule est formé par 8 autres cellules directement adjacentes. 
 Pour passer de l’itération tt à l’itération t+1t+1, l’état des cellules dans la grille est actualisé selon les règles suivantes :
 
 - Une cellule morte possédant exactement trois voisines vivantes devient vivante.
@@ -99,10 +98,10 @@ Toute tentative de plagiat, toute ressemblance entre les codes livrés, toute in
 
 # Installation 
 ## Préréquis
-Tout les membres de l'équipe avait Windows comme OS lors de ce projet donc il est conseiller d'avoir cet OS pour pouvoir executer les codes de ce dépôt.
+Tout les membres de l'équipe avait Windows comme OS lors de ce projet donc il est conseillé d'avoir cet OS pour pouvoir executer les codes de ce dépôt.
 
 ### Installation de Visual Studio Community
-On a utiliser comme éditeur de texte **Visual Studio Community 2022**.
+On a utilisé comme éditeur de texte **Visual Studio Community 2022**.
 
 **Visual Studio Community** est téléchargeable depuis ce lien :
 https://visualstudio.microsoft.com/fr/vs/community/
@@ -124,7 +123,7 @@ Mettez à jour les paquets :
 
 ![image de ligne de commande 7](ligne_de_commande_installation_7.png)
 
-Installer g++ :
+Installez g++ :
 
 ![image de ligne de commande 8](ligne_de_commande_installation_8.png)
 
@@ -133,7 +132,7 @@ Mettez à jour les paquets :
 
 ![image de ligne de commande 9](ligne_de_commande_installation_9.png)
 
-Installer g++ :
+Installez g++ :
 
 ![image de ligne de commande 10](ligne_de_commande_installation_10.png)
 
@@ -144,7 +143,7 @@ Suivez les instructions d'installation et cochez l'option pour installer **g++**
 
 Ensuite lorsque vous configurez la variable d'environnement, ajoutez le chemin du dossier **bin** de **MinGW** à la variable d'environnement **PATH**.
 
-### Installation sous Windows+
+### Installation sous Windows
 Sous **windows** pour compiler depuis votre terminal, vous devez utiliser une ligne de commande de cette manière :
 
 ![image de ligne de commande 3](ligne_de_commande_installation_3.png)
@@ -178,8 +177,8 @@ Voici les lignes de commandes qu'il faut utiliser pour installer SFML depuis le 
 
 ![image de ligne de commande 1](ligne_de_commande_installation_1.png)
 
-### Les différentes bibliothèques disponibles
-Ensuite une fois l'installation des bibliothèques se sont faite avec le compilateur, pour pouvoir compiler vos codes, il faut spécifier en paramètres les bibliothèques SFML que vous avez installer.
+## Les différentes bibliothèques disponibles
+Ensuite une fois l'installation des bibliothèques se sont faite avec le compilateur, pour pouvoir compiler vos codes, il faut spécifier en paramètres les bibliothèques SFML que vous avez installée.
 
 Voici les 5 bibliothèques SFML disponibles (tout OS confondu) :
 - **-lsfml-graphics"** : Lie la bibliothèque pour les graphismes.
@@ -192,6 +191,9 @@ Exemple :
 ![image de ligne de commande 2](ligne_de_commande_installation_2.png)
 
 Vous pouvez aussi utiliser le débuggeur de Visual Studio Community 2022.
-Fonctionnera seulement si vous avez bien installer et configurer l'environnement par rapport à ces bibliothèques.
+
+Pour configurer l'environnement afin de pouvoir utiliser le débugeur : https://www.sfml-dev.org/tutorials/2.6/start-vc.php
+
+*Fonctionnera seulement si vous avez bien installé et configuré l'environnement par rapport à ces bibliothèques.*
 
 Tout dépend de vos préférences.
