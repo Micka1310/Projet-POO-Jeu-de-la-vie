@@ -43,16 +43,6 @@ void Grille::ajouterLignesColonnes(int ajoutRows, int ajoutCols) {
 
 }
 
-// Mécanisme pour agrandir/réduire dynamiquement la taille.
-void Grille::ajouterLignesColonnes(int ajoutRows, int ajoutCols) {
-    rows += ajoutRows;
-    cols += ajoutCols;
-    grille.resize(rows, vector<Case>(cols));
-    for (int i = 0; i < rows; ++i) {
-        grille[i].resize(cols, Case(i, cols, false)); // Ajuster chaque ligne
-    }
-}
-
 // Afficher la grille
 void Grille::afficherGrille() {
     if (grille.empty() || grille[0].empty()) {

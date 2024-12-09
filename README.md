@@ -34,7 +34,7 @@ Suivra une matrice de booléens, décrivant l’état initial, vivant (1) ou mor
 
 Par exemple :
 
-![image de grille](image_enoncer_grille.png)
+![image de grille](image_readme/image_enoncer_grille.png)
 
 Pour aboutir vous formerez des groupes de 2 étudiants. L’utilisation de GIT par tous les membres du projet sera indispensable. L’évaluation portera sur les éléments suivants :
 
@@ -121,20 +121,20 @@ Le code de ce dépot est compilable avec le compilateur **g++**.
 ### Installation de g++ sous Linux (Ubuntu/Debian)
 Mettez à jour les paquets :
 
-![image de ligne de commande 7](ligne_de_commande_installation_7.png)
+![image de ligne de commande 7](image_readme/ligne_de_commande_installation_7.png)
 
 Installez g++ :
 
-![image de ligne de commande 8](ligne_de_commande_installation_8.png)
+![image de ligne de commande 8](image_readme/ligne_de_commande_installation_8.png)
 
 ### Installation de g++ sous Mac OS
 Mettez à jour les paquets :
 
-![image de ligne de commande 9](ligne_de_commande_installation_9.png)
+![image de ligne de commande 9](image_readme/ligne_de_commande_installation_9.png)
 
 Installez g++ :
 
-![image de ligne de commande 10](ligne_de_commande_installation_10.png)
+![image de ligne de commande 10](image_readme/ligne_de_commande_installation_10.png)
 
 ### Installation de g++ sous Windows
 Installer d'abord **MinGW** depuis le site officiel : https://www.mingw-w64.org/
@@ -146,7 +146,7 @@ Ensuite lorsque vous configurez la variable d'environnement, ajoutez le chemin d
 ### Installation sous Windows
 Sous **windows** pour compiler depuis votre terminal, vous devez utiliser une ligne de commande de cette manière :
 
-![image de ligne de commande 3](ligne_de_commande_installation_3.png)
+![image de ligne de commande 3](image_readme/ligne_de_commande_installation_3.png)
 
 "-L" pour spécifier les libraries
 "-I" pour spécifier les includes
@@ -155,19 +155,19 @@ Sous **windows** pour compiler depuis votre terminal, vous devez utiliser une li
 Pour **Mac OS**, voici les lignes de commandes pour installer SFML avec **Homebrew**.
 Pour installer **Homebrew** :
 
-![image de ligne de commande 4](ligne_de_commande_installation_4.png)
+![image de ligne de commande 4](image_readme/ligne_de_commande_installation_4.png)
 
 On le met à jour :
 
-![image de ligne de commande 5](ligne_de_commande_installation_5.png)
+![image de ligne de commande 5](image_readme/ligne_de_commande_installation_5.png)
 
 Puis l'installation SFML :
 
-![image de ligne de commande 6](ligne_de_commande_installation_6.png)
+![image de ligne de commande 6](image_readme/ligne_de_commande_installation_6.png)
 
 Enfin pour compiler vos codes sous Mac OS, voici un exemple de ligne de commande :
 
-![image de ligne de commande 3](ligne_de_commande_installation_3.png)
+![image de ligne de commande 3](image_readme/ligne_de_commande_installation_3.png)
 
 "-L" pour spécifier les libraries
 "-I" pour spécifier les includes
@@ -175,7 +175,7 @@ Enfin pour compiler vos codes sous Mac OS, voici un exemple de ligne de commande
 ### Installation sous Linux
 Voici les lignes de commandes qu'il faut utiliser pour installer SFML depuis le compilateur sous **Linux** :
 
-![image de ligne de commande 1](ligne_de_commande_installation_1.png)
+![image de ligne de commande 1](image_readme/ligne_de_commande_installation_1.png)
 
 ## Les différentes bibliothèques disponibles
 Ensuite une fois l'installation des bibliothèques se sont faite avec le compilateur, pour pouvoir compiler vos codes, il faut spécifier en paramètres les bibliothèques SFML que vous avez installée.
@@ -188,7 +188,7 @@ Voici les 5 bibliothèques SFML disponibles (tout OS confondu) :
 - **-lsfml-network** : Si vous utilisez des fonctionnalités réseau
 
 Exemple :
-![image de ligne de commande 2](ligne_de_commande_installation_2.png)
+![image de ligne de commande 2](image_readme/ligne_de_commande_installation_2.png)
 
 Vous pouvez aussi utiliser le débuggeur de Visual Studio Community 2022.
 
